@@ -38,15 +38,15 @@ const Carousel = () => {
   };
 
   const images = [
-    `${import.meta.env.BASE_URL}assets/icons/100%-best.jpg`,
-    `${import.meta.env.BASE_URL}assets/icons/satisfactory.jpg`,
-    `${import.meta.env.BASE_URL}assets/icons/money-back.jpg`,
-    `${import.meta.env.BASE_URL}assets/icons/24-7-costumer.jpg`,
-    `${import.meta.env.BASE_URL}assets/icons/grunge_quality.jpg`,
-    `${import.meta.env.BASE_URL}assets/icons/best-quality.jpg`,
-    `${import.meta.env.BASE_URL}assets/icons/approved.jpg`,
-    `${import.meta.env.BASE_URL}assets/icons/best-stars.jpg`,
-    `${import.meta.env.BASE_URL}assets/icons/premium_certified_quality_stamp.jpg`,
+    `${import.meta.env.BASE_URL}icons/100%-best.jpg`,
+    `${import.meta.env.BASE_URL}icons/satisfactory.jpg`,
+    `${import.meta.env.BASE_URL}icons/money-back.jpg`,
+    `${import.meta.env.BASE_URL}icons/24-7-costumer.jpg`,
+    `${import.meta.env.BASE_URL}icons/grunge_quality.jpg`,
+    `${import.meta.env.BASE_URL}icons/best-quality.jpg`,
+    `${import.meta.env.BASE_URL}icons/approved.jpg`,
+    `${import.meta.env.BASE_URL}icons/best-stars.jpg`,
+    `${import.meta.env.BASE_URL}icons/premium_certified_quality_stamp.jpg`,
   ];
 
   return (

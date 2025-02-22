@@ -8,7 +8,6 @@ const ProductCard = ({ product }) => {
   const truncatedDesc = truncate(product.description, 20);
   const truncatedTitle = truncate(product.name, 20);
 
-
   return (
     <div className={styles.productCard}>
       <Link to={`/product/${product.id}`}>
@@ -16,7 +15,10 @@ const ProductCard = ({ product }) => {
           <h2>{truncatedTitle}</h2>
           <p>{truncatedDesc}</p>
         </div>
-        <img src={`/assets/images/${product.image}`} alt={product.name} />
+        <img
+          src={`${import.meta.env.BASE_URL}images/${product.image}`}
+          alt={product.name}
+        />
         <div className={styles.action}>
           <p className={styles.price}>${product.price}</p>
           <p className={styles.rating}>⭐ {product.rating}</p>

@@ -7,7 +7,7 @@
   text-align: center;
   padding: 80px 20px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.836), rgba(0, 0, 0, 0.164)),
-    url("/assets/images/hero-img.jpg");
+    url("/images/hero-img.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
