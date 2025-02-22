@@ -8,7 +8,7 @@ const FeaturedProducts = ({ products }) => {
       {recentProducts.map((product) => (
         <div key={product.id} className={styles.productCard}>
           <img
-            src={`${import.meta.env.BASE_URL}images/${product.image}`}
+            src={`${import.meta.env.BASE_URL}/images/${product.image}`}
             alt={product.name}
           />
           <div className={styles.productInfoDiv}>
