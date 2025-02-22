@@ -10,6 +10,7 @@ const ReviewCard = ({ review }) => {
           <img
             src={`${import.meta.env.BASE_URL}/images/avatar.jpg`}
             alt="Avatar"
+            loading="lazy" 
           />
         </div>
         <div>

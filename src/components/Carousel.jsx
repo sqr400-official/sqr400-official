@@ -38,15 +38,15 @@ const Carousel = () => {
   };
 
   const images = [
-    `${import.meta.env.BASE_URL}/icons/100%-best.jpg`,
-    `${import.meta.env.BASE_URL}/icons/satisfactory.jpg`,
-    `${import.meta.env.BASE_URL}/icons/money-back.jpg`,
-    `${import.meta.env.BASE_URL}/icons/24-7-costumer.jpg`,
-    `${import.meta.env.BASE_URL}/icons/grunge_quality.jpg`,
-    `${import.meta.env.BASE_URL}/icons/best-quality.jpg`,
-    `${import.meta.env.BASE_URL}/icons/approved.jpg`,
-    `${import.meta.env.BASE_URL}/icons/best-stars.jpg`,
-    `${import.meta.env.BASE_URL}/icons/premium_certified_quality_stamp.jpg`,
+    `100%-best.jpg`,
+    `satisfactory.jpg`,
+    `money-back.jpg`,
+    `24-7-costumer.jpg`,
+    `grunge_quality.jpg`,
+    `best-quality.jpg`,
+    `approved.jpg`,
+    `best-stars.jpg`,
+    `premium_certified_quality_stamp.jpg`,
   ];
 
   return (
@@ -55,9 +55,10 @@ const Carousel = () => {
         {images.map((image, index) => (
           <div key={index} className={styles.carouselDiv}>
             <img
-              src={image}
-              alt={`Logo ${index + 1}`}
+              src={`${import.meta.env.BASE_URL}/icons/${image}`}
+              alt={image}
               className={styles.carouselImg}
+              loading="lazy" 
             />
           </div>
         ))}

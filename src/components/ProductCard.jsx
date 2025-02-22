@@ -18,6 +18,7 @@ const ProductCard = ({ product }) => {
         <img
           src={`${import.meta.env.BASE_URL}/images/${product.image}`}
           alt={product.name}
+          loading="lazy" 
         />
         <div className={styles.action}>
           <p className={styles.price}>${product.price}</p>

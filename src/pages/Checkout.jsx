@@ -8,7 +8,6 @@ import Verification from "../components/Verification";
 import Toast from "../components/Toast";
 import wallets from "../../data/wallets";
 
-
 const Checkout = () => {
   const [buyerInfo, setBuyerInfo] = useState({ name: "", email: "" });
   const [selectedWalletChain, setSelectedWalletChain] = useState(
@@ -60,7 +59,11 @@ const Checkout = () => {
         {!isVerifying ? (
           <div className={styles.checkoutContainer}>
             <div className={styles.productInfo}>
-              <img src={`${import.meta.env.BASE_URL}/images/${product.image}`} alt={product.name} />
+              <img
+                src={`${import.meta.env.BASE_URL}/images/${product.image}`}
+                alt={product.name}
+                loading="lazy"
+              />
             </div>
             <div className={styles.payment}>
               {enteredInfo && (

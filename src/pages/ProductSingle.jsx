@@ -39,6 +39,7 @@ const ProductSingle = () => {
                 src={`${import.meta.env.BASE_URL}/images/${product.image}`}
                 alt={product.name}
                 className={styles["product-image"]}
+                loading="lazy" 
               />
             </div>
 
