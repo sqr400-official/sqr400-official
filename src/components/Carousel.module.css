@@ -1,0 +1,32 @@
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.carouselDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.carouselImg {
+  height: 60px; /* Reduce size for mobile */
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+}
+
+/* Ensure spacing is maintained */
+@media (max-width: 768px) {
+  .carouselImg {
+    height: 50px;
+    max-width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carouselImg {
+    height: 40px;
+    max-width: 60px;
+  }
+}

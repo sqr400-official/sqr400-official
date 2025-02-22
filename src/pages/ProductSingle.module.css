@@ -1,0 +1,170 @@
+/* Product Single Page */
+.product-container {
+  min-height: 100vh;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-card {
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewsData {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.averageRating {
+  font-size: 24px;
+}
+
+.descriptionAndReviews {
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .product-card {
+    flex-direction: row;
+  }
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 8px;
+}
+
+
+@media (min-width: 768px) {
+  .image-container {
+    width: 50%;
+  }
+}
+
+.product-details {
+  width: 100%;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .product-details {
+    width: 50%;
+  }
+}
+
+.product-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.price-rating {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.product-price {
+  font-size: 24px;
+  color: #047857;
+  font-weight: bold;
+}
+
+.product-rating {
+  color: #ffbf00;
+  font-size: 18px;
+  display: flex;
+}
+
+.product-description {
+  color: #4b5563;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.product-category {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #374151;
+}
+
+.product-stock {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.in-stock {
+  color: green;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  color: red;
+  font-weight: bold;
+}
+
+.buttons-container {
+  margin-top: 20px;
+  margin-bottom: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.buy-button {
+  flex: 1;
+  background: #374151;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.buy-button:hover {
+  background: #1f2937;
+}
+
+
+@media screen and (max-width: 768px) {
+  .buttons-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .buy-button {
+    width: 100%;
+  }
+
+  .product-title {
+    font-size: 1.3rem;
+  }
+
+  .descriptionAndReviews {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,24 @@
+.related {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.related h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+
+  .productsGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

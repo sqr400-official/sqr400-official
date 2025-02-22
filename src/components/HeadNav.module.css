@@ -1,0 +1,74 @@
+.headNav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+}
+
+/* Navbar */
+.nav {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: white;
+  width: 200px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a {
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #1f2937;
+}
+
+/* Show menu when button is clicked */
+.show-menu {
+  display: flex !important;
+}
+
+/* Toggle Button */
+.nav-toggle {
+  all: unset;
+  display: block;
+  color: #4b5563;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Desktop View */
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+}

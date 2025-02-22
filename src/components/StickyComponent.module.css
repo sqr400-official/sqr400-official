@@ -1,0 +1,12 @@
+.stickyContainer {
+  background: rgb(255, 81, 0);
+  color: white;
+  padding: 16px;
+  text-align: center;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}

@@ -1,0 +1,15 @@
+/* Footer */
+.footer {
+  background: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  margin-bottom: 53px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    margin-bottom: 80px;
+  }
+}
+  
