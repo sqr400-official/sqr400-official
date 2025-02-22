@@ -7,7 +7,10 @@ const ReviewCard = ({ review }) => {
     <div className={styles.reviewCard}>
       <div className={styles.userInfo}>
         <div className={styles.avatar}>
-          <img src="/assets/images/avatar.jpg" alt="Avatar" />
+          <img
+            src={`${import.meta.env.BASE_URL}assets/images/avatar.jpg`}
+            alt="Avatar"
+          />
         </div>
         <div>
           <strong>{review.name}</strong> – {review.date}

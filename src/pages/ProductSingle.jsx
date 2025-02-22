@@ -36,7 +36,7 @@ const ProductSingle = () => {
             {/* Product Image */}
             <div className={styles["image-container"]}>
               <img
-                src={`/assets/images/${product.image}`}
+                src={`${import.meta.env.BASE_URL}assets/images/${product.image}`}
                 alt={product.name}
                 className={styles["product-image"]}
               />

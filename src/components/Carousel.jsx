@@ -38,15 +38,15 @@ const Carousel = () => {
   };
 
   const images = [
-    "/assets/icons/100%-best.jpg",
-    "/assets/icons/satisfactory.jpg",
-    "/assets/icons/money-back.jpg",
-    "/assets/icons/24-7-costumer.jpg",
-    "/assets/icons/grunge_quality.jpg",
-    "/assets/icons/best-quality.jpg",
-    "/assets/icons/approved.jpg",
-    "/assets/icons/best-stars.jpg",
-    "/assets/icons/premium_certified_quality_stamp.jpg",
+    `${import.meta.env.BASE_URL}assets/icons/100%-best.jpg`,
+    `${import.meta.env.BASE_URL}assets/icons/satisfactory.jpg`,
+    `${import.meta.env.BASE_URL}assets/icons/money-back.jpg`,
+    `${import.meta.env.BASE_URL}assets/icons/24-7-costumer.jpg`,
+    `${import.meta.env.BASE_URL}assets/icons/grunge_quality.jpg`,
+    `${import.meta.env.BASE_URL}assets/icons/best-quality.jpg`,
+    `${import.meta.env.BASE_URL}assets/icons/approved.jpg`,
+    `${import.meta.env.BASE_URL}assets/icons/best-stars.jpg`,
+    `${import.meta.env.BASE_URL}assets/icons/premium_certified_quality_stamp.jpg`,
   ];
 
   return (
