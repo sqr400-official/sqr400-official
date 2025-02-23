@@ -79,7 +79,7 @@
   margin-bottom: 10px;
 }
 
-.payment select {
+.payment .walletSelect {
   width: 100%;
   max-width: 250px;
   padding: 10px;
@@ -91,7 +91,7 @@
   transition: border-color 0.3s;
 }
 
-.payment select:focus {
+.payment .walletSelect:focus {
   border-color: #007bff;
   outline: none;
 }
@@ -147,7 +147,7 @@
     padding: 10px;
   }
 
-  .payment select {
+  .payment .walletSelect {
     max-width: 200px;
   }
 }

@@ -5,7 +5,7 @@ const ErrorComponent = ({ onClick, error, message, icon, btnMsg }) => {
   return (
     <main className={styles.verifyPageContainer}>
       <img
-        src={`${import.meta.env.BASE_URL}/icons/${icon}`}
+        src={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}icons/${icon}`}
         alt="cancel"
         loading="lazy"
       />

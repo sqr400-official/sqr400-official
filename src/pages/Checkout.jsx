@@ -1,19 +1,21 @@
 import { useState } from "react";
 import styles from "./Checkout.module.css";
 import HeadNav from "../components/HeadNav";
-import products from "../../data/data";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import BuyersInfoForm from "../components/BuyersInfoForm";
 import Verification from "../components/Verification";
 import Toast from "../components/Toast";
-import wallets from "../../data/wallets";
+import { useProductContext } from "../contexts/ProductContext";
 
 const Checkout = () => {
+  const { wallets, products } = useProductContext();
+
   const [buyerInfo, setBuyerInfo] = useState({ name: "", email: "" });
   const [selectedWalletChain, setSelectedWalletChain] = useState(
     wallets[0].chain
   );
   const [showToast, setShowToast] = useState(false);
+  const [os, setOs] = useState("Windows");
 
   const [isVerifying, setIsVerifying] = useState(false);
   const [enteredInfo, setEnteredInfo] = useState(false);
@@ -60,7 +62,9 @@ const Checkout = () => {
           <div className={styles.checkoutContainer}>
             <div className={styles.productInfo}>
               <img
-                src={`${import.meta.env.BASE_URL}/images/${product.image}`}
+                src={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}images/${
+                  product.image
+                }`}
                 alt={product.name}
                 loading="lazy"
               />
@@ -80,6 +84,7 @@ const Checkout = () => {
                     <label htmlFor="walletSelect">Select Payment Method:</label>
                     <select
                       id="walletSelect"
+                      className={styles.walletSelect}
                       value={selectedWalletChain}
                       onChange={(e) => setSelectedWalletChain(e.target.value)}
                     >
@@ -108,6 +113,8 @@ const Checkout = () => {
                   <BuyersInfoForm
                     buyerInfo={buyerInfo}
                     setBuyerInfo={setBuyerInfo}
+                    os={os}
+                    setOs={setOs}
                   />
                 )}
                 {enteredInfo ? (

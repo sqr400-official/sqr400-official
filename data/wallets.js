@@ -1,4 +1,4 @@
-const wallets = [
+const walletsData = [
   {
     chain: "BTC - Bitcoin",
     address: "bc1qwf75azsc6r2mce8k3u85asld8a2drtsuz0qxpc",
@@ -17,4 +17,4 @@ const wallets = [
   },
 ];
 
-export default wallets;
+export default walletsData;

@@ -1,23 +1,36 @@
 import { Link, useParams } from "react-router-dom";
 import styles from "./ProductSingle.module.css";
-import products from "../../data/data";
 import HeadNav from "../components/HeadNav";
 import { FaStar, FaShoppingCart } from "react-icons/fa";
 import DescriptionAndReviews from "../components/DescriptionAndReviews";
 import Footer from "../components/Footer";
-import reviewsData from "../../data/reviews";
 import StickyComponent from "../components/StickyComponent";
+import RelatedProducts from "../components/RelatedProducts";
+import { useProductContext } from "../contexts/ProductContext";
+import { useEffect } from "react";
 
 const ProductSingle = () => {
   const { id } = useParams();
-  const product = products.find((p) => p.id === Number(id));
+  const { products, reviews } = useProductContext();
+  const productId = Number(id);
 
-  const numberOfReviews = reviewsData.length;
+  // Find the selected product
+  const product = products.find((p) => p.id === productId);
+
+  // Find reviews for the selected product
+  const productReviews = reviews.find((r) => r.productId === productId)?.reviews || [];
+
+
+  const numberOfReviews = productReviews.length;
   const averageRating =
-    reviewsData.reduce((acc, review) => acc + review.rating, 0) /
-    reviewsData.length;
+    productReviews.reduce((acc, review) => acc + review.rating, 0) /
+    productReviews.length;
 
   const formattedRating = averageRating.toFixed(2);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   if (!product) {
     return (
@@ -36,10 +49,12 @@ const ProductSingle = () => {
             {/* Product Image */}
             <div className={styles["image-container"]}>
               <img
-                src={`${import.meta.env.BASE_URL}/images/${product.image}`}
+                src={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}images/${
+                  product.image
+                }`}
                 alt={product.name}
                 className={styles["product-image"]}
-                loading="lazy" 
+                loading="lazy"
               />
             </div>
 
@@ -92,6 +107,9 @@ const ProductSingle = () => {
         </section>
         <section className={styles.descriptionAndReviews}>
           <DescriptionAndReviews />
+        </section>
+        <section className={styles.descriptionAndReviews}>
+          <RelatedProducts />
         </section>
       </main>
       <StickyComponent />

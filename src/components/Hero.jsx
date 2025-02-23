@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-import { Link } from 'react-router-dom';
-import styles from './Hero.module.css'
+import { Link } from "react-router-dom";
+import styles from "./Hero.module.css";
 
-const Hero = ({products}) => {
-  const product = products.slice(-1)[0];
+const Hero = ({ products }) => {
+  const targetId = 1;
+  const product = products.find((product) => product.id === targetId);
 
   return (
     <section className={styles.hero}>

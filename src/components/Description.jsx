@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
-import products from "../../data/data";
 import styles from "./Description.module.css";
+import { useProductContext } from "../contexts/ProductContext";
 
 const Description = () => {
+  const { products } = useProductContext();
+
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
 

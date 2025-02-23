@@ -16,9 +16,11 @@ const ProductCard = ({ product }) => {
           <p>{truncatedDesc}</p>
         </div>
         <img
-          src={`${import.meta.env.BASE_URL}/images/${product.image}`}
+          src={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}images/${
+            product.image
+          }`}
           alt={product.name}
-          loading="lazy" 
+          loading="lazy"
         />
         <div className={styles.action}>
           <p className={styles.price}>${product.price}</p>

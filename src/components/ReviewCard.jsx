@@ -8,9 +8,12 @@ const ReviewCard = ({ review }) => {
       <div className={styles.userInfo}>
         <div className={styles.avatar}>
           <img
-            src={`${import.meta.env.BASE_URL}/images/avatar.jpg`}
+            src={`${import.meta.env.BASE_URL.replace(
+              /\/?$/,
+              "/"
+            )}images/avatar.jpg`}
             alt="Avatar"
-            loading="lazy" 
+            loading="lazy"
           />
         </div>
         <div>

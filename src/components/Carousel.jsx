@@ -38,7 +38,7 @@ const Carousel = () => {
   };
 
   const images = [
-    `100%-best.jpg`,
+    `best-100.jpg`,
     `satisfactory.jpg`,
     `money-back.jpg`,
     `24-7-costumer.jpg`,
@@ -55,10 +55,13 @@ const Carousel = () => {
         {images.map((image, index) => (
           <div key={index} className={styles.carouselDiv}>
             <img
-              src={`${import.meta.env.BASE_URL}/icons/${image}`}
+              src={`${import.meta.env.BASE_URL.replace(
+                /\/?$/,
+                "/"
+              )}icons/${image}`}
               alt={image}
               className={styles.carouselImg}
-              loading="lazy" 
+              loading="lazy"
             />
           </div>
         ))}
