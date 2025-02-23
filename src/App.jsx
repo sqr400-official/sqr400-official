@@ -9,6 +9,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Contact from "./pages/Contact";
 import { useEffect } from "react";
 import BlogSingle from "./pages/BlogSingle";
+import Posts from "./pages/Posts";
 
 const App = () => {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const App = () => {
         element={<VerificationPage />}
       />
       <Route path="contact" element={<Contact />} />
+      <Route path="blog" element={<Posts />} />
       <Route path="blog/:id" element={<BlogSingle />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
