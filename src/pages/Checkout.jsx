@@ -6,6 +6,8 @@ import BuyersInfoForm from "../components/BuyersInfoForm";
 import Verification from "../components/Verification";
 import Toast from "../components/Toast";
 import { useProductContext } from "../contexts/ProductContext";
+import StickyComponent from "../components/StickyComponent";
+import Footer from "../components/Footer";
 
 const Checkout = () => {
   const { wallets, products } = useProductContext();
@@ -163,6 +165,8 @@ const Checkout = () => {
           />
         )}
       </main>
+      <StickyComponent />
+      <Footer />
     </>
   );
 };
