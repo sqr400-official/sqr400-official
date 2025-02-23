@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { formatTime } from "../utils/factions";
 import Loader from "./Loader";
 
-const Verification = ({ buyerInfo, product, id }) => {
+const Verification = ({ buyerInfo, product, id, selectedWallet, copied, handleCopy }) => {
   const [countdown, setCountdown] = useState(600); // Start from 60 seconds
   const navigate = useNavigate();
 
@@ -35,13 +35,26 @@ const Verification = ({ buyerInfo, product, id }) => {
         <div className={styles.loading}>
           <Loader />
         </div>
+        <p className={styles.toCopiedText} onClick={handleCopy}>
+          {selectedWallet?.chain}
+          <br />
+          {selectedWallet?.address}
+          <br />
+          📋
+        </p>
         <p className={styles.countdownText}>
           ⏳ Payment expires in{" "}
           <span className={styles.timer}>{formatTime(countdown)}</span>
         </p>
         <p className={styles.countdownText}>
-          <span className={styles.timer}>Please, complete your payment within the time limit.</span>
+          <span className={styles.timer}>
+            Please, complete your payment within the time limit.
+          </span>
         </p>
+
+        {copied && (
+          <p style={{ color: "green", fontWeight: "bold" }}>Copied!</p>
+        )}
       </div>
     </main>
   );

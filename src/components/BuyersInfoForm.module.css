@@ -32,9 +32,3 @@
   transition: border-color 0.3s;
 }
 
-@media (max-width: 480px) {
-
-  .osSelect {
-    max-width: 200px;
-  }
-}

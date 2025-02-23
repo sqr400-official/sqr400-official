@@ -153,7 +153,14 @@ const Checkout = () => {
             </div>
           </div>
         ) : (
-          <Verification id={id} product={product} buyerInfo={buyerInfo} />
+          <Verification
+            id={id}
+            copied={copied}
+            product={product}
+            buyerInfo={buyerInfo}
+            handleCopy={handleCopy}
+            selectedWallet={selectedWallet}
+          />
         )}
       </main>
     </>

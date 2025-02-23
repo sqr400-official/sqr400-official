@@ -171,5 +171,8 @@
     
   .copiedText {
     font-size: .5rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;  
   }
 }

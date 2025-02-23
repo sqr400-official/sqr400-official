@@ -43,6 +43,14 @@
 .loading{
   margin: 20px 0;
 }
+.toCopiedText{
+  color: #28a745;
+  font-weight: bold;
+  margin: 20px auto;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
 
 .countdownText {
   font-size: 18px;
