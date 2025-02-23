@@ -7,36 +7,36 @@
   border-radius: 8px;
 }
 
-article {
+.article {
   line-height: 1.8;
   color: #333;
 }
 
-h2 {
+.heading {
   color: #222;
   font-size: 1.8rem;
   margin-bottom: 10px;
 }
 
-p {
+.paragraph {
   font-size: 1rem;
   color: #555;
   margin-bottom: 20px;
 }
 
-header {
+.header {
   border-bottom: 2px solid #eee;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
-footer {
+.footer {
   margin-top: 30px;
   font-size: 0.9rem;
   color: #777;
 }
 
-aside {
+.aside {
   max-width: 800px;
   margin: 20px auto;
   padding: 15px;
@@ -44,27 +44,27 @@ aside {
   border-radius: 8px;
 }
 
-aside h3 {
+.asideHeading {
   font-size: 1.4rem;
   color: #222;
 }
 
-aside ul {
+.asideList {
   list-style: none;
   padding: 0;
 }
 
-aside li {
+.asideItem {
   margin: 8px 0;
 }
 
-aside a {
+.asideLink {
   text-decoration: none;
   color: #0073e6;
   font-weight: bold;
 }
 
-aside a:hover {
+.asideLink:hover {
   text-decoration: underline;
 }
 
@@ -74,11 +74,11 @@ aside a:hover {
     padding: 15px;
   }
 
-  h2 {
+  .heading {
     font-size: 1.5rem;
   }
 
-  p {
+  .paragraph {
     font-size: 0.95rem;
   }
 }
