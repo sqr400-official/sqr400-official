@@ -1,0 +1,60 @@
+.createPostContainer {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 80px;
+}
+
+.createPostContainer h2 {
+  text-align: center;
+  color: #333;
+}
+
+.createPostForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.postFormGroup {
+  margin-bottom: 15px;
+}
+
+.postFormGroup label {
+  font-weight: bold;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.postFormGroup input,
+.postFormGroup textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.postFormGroup textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.postSubmitBtn {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.postSubmitBtn:hover {
+  background: #0056b3;
+}

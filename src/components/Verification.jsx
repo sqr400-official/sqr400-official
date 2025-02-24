@@ -5,25 +5,37 @@ import { useNavigate } from "react-router-dom";
 import { formatTime } from "../utils/factions";
 import Loader from "./Loader";
 
-const Verification = ({ buyerInfo, product, id, selectedWallet, copied, handleCopy }) => {
-  const [countdown, setCountdown] = useState(600); // Start from 60 seconds
+const Verification = ({
+  buyerInfo,
+  product,
+  id,
+  selectedWallet,
+  copied,
+  handleCopy,
+}) => {
+  const [countdown, setCountdown] = useState(360); // Default 10 minutes
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (countdown === 0) return; // Stop countdown at 0
+    // Start a fresh timer when the component mounts
+    setCountdown(countdown); // Reset countdown on refresh
 
     const timer = setInterval(() => {
-      setCountdown((prev) => prev - 1);
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          navigate(`/product/${id}/check-out/verify`);
+          return 0;
+        }
+        return prev - 1;
+      });
     }, 1000);
 
-    return () => clearInterval(timer); // Cleanup interval
-  }, [countdown]);
-
-  if (countdown === 0) {
-    navigate(`/product/${id}/check-out/verify`);
-  }
+    return () => clearInterval(timer); // Cleanup on unmount
+  }, [navigate, id]);
 
   return (
+    <>
     <main className={styles.verifyContainer}>
       <div className={styles.verifyHeader}>
         <h1 className={styles.buyerName}>{buyerInfo.name}</h1>
@@ -57,6 +69,7 @@ const Verification = ({ buyerInfo, product, id, selectedWallet, copied, handleCo
         )}
       </div>
     </main>
+    </>
   );
 };
 

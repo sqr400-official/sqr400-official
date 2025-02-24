@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import ErrorComponent from "../components/ErrorComponent";
 import HeadNav from "../components/HeadNav";
-import Footer from "../components/Footer";
-import StickyComponent from "../components/StickyComponent";
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -22,8 +20,6 @@ const ErrorPage = () => {
           btnMsg="Move Back"
         />
       </main>
-      <StickyComponent />
-      <Footer />
     </>
   );
 };

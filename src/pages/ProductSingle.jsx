@@ -8,6 +8,7 @@ import StickyComponent from "../components/StickyComponent";
 import RelatedProducts from "../components/RelatedProducts";
 import { useProductContext } from "../contexts/ProductContext";
 import { useEffect } from "react";
+import MessageBox from "../components/MessageBox";
 
 const ProductSingle = () => {
   const { id } = useParams();
@@ -112,6 +113,7 @@ const ProductSingle = () => {
           <RelatedProducts />
         </section>
       </main>
+      <MessageBox />
       <StickyComponent />
       <Footer />
     </>

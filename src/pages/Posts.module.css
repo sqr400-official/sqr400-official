@@ -6,6 +6,19 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
   gap: 20px;
   margin-top: 80px;
+  min-height: 80vh;
+}
+
+.noPostFound{
+  text-align: center;
+  margin-top: 80px;
+}
+
+.loaderContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .postsContainer h1 {
@@ -25,6 +38,7 @@
   color: #333;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  height: 400px;
 }
 
 .postsContainer a:hover {

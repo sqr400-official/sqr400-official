@@ -4,6 +4,7 @@ import HeadNav from "../components/HeadNav";
 import Toast from "../components/Toast";
 import StickyComponent from "../components/StickyComponent";
 import Footer from "../components/Footer";
+import MessageBox from "../components/MessageBox";
 
 const contactData = {
   email: "info@sqr400official.com",
@@ -74,6 +75,7 @@ const Contact = () => {
           <Toast message="Your message has been sent!" type="success" />
         )}
       </main>
+      <MessageBox />
       <StickyComponent />
       <Footer />
     </>

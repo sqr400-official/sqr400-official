@@ -17,3 +17,9 @@ export const formatTime = (seconds) => {
 
   return result.trim(); // Remove any trailing spaces
 };
+
+export const formatNumber = (number) => {
+  const formattedNumber = new Intl.NumberFormat("en-US").format(number);
+  return `$${formattedNumber}`;
+};
+

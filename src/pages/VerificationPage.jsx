@@ -1,14 +1,12 @@
-import { useNavigate, useParams } from "react-router-dom";
 import HeadNav from "../components/HeadNav";
 import ErrorComponent from "../components/ErrorComponent";
 
 const VerificationPage = () => {
-  const navigate = useNavigate();
-  const { id } = useParams();
-
   const handleTryAgain = () => {
-    navigate(`/product/${id}/check-out`);
+    // Redirect to the payment page
+    window.open("https://t.me/sqr400_official", "_blank");
   };
+
   return (
     <>
       <HeadNav />
@@ -17,7 +15,7 @@ const VerificationPage = () => {
         error="Verification Failed"
         message="Sorry we are unable to verify your payment"
         icon="cancel.svg"
-        btnMsg="Try again"
+        btnMsg="Contact Support"
       />
     </>
   );

@@ -2,11 +2,23 @@ import HeadNav from "../components/HeadNav";
 import Footer from "../components/Footer";
 import styles from "./BlogSingle.module.css";
 import { Link, useParams } from "react-router-dom";
-import posts from "../../data/posts";
+import MessageBox from "../components/MessageBox";
+import { usePostContext } from "../contexts/PostContext";
 const BlogSingle = () => {
   const { id } = useParams();
-  const post = posts.find((p) => p.id === Number(id));
+  const { posts } = usePostContext();
+
+  const post = posts.find((p) => p.id === id);
   if (!post) return <h2>Post not found!</h2>;
+
+
+    const getRandomPosts = (products, count = 3) => {
+      // Shuffle the products array using Fisher-Yates algorithm
+      const shuffled = [...products].sort(() => Math.random() - 0.5);
+      return shuffled.slice(0, count);
+    };
+  
+    const randomPosts = getRandomPosts(posts, 3);
   
   return (
     <>
@@ -34,19 +46,17 @@ const BlogSingle = () => {
         <aside className={styles.aside}>
           <h3 className={styles.asideHeading}>Related Posts</h3>
           <ul className={styles.asideList}>
-            <li className={styles.asideItem}>
-              <Link to="/seo-tips" className={styles.asideLink}>
-                SEO Tips for Beginners
-              </Link>
-            </li>
-            <li className={styles.asideItem}>
-              <Link to="/content-strategy" className={styles.asideLink}>
-                Content Strategy for 2025
-              </Link>
-            </li>
+            {randomPosts.map((post) => (
+              <li key={post.id} className={styles.asideItem}>
+                <Link to={`/blog/${post.id}`} className={styles.asideLink}>
+                  {post.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </aside>
       </div>
+      <MessageBox />
       <Footer />
     </>
   );

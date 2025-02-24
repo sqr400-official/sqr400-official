@@ -19,19 +19,27 @@ const HeadNav = () => {
           >
             ☰
           </button>
-          
+
           {/* Navigation Links */}
-          <ul className={`${styles["nav-links"]} ${isOpen ? styles["show-menu"] : ""}`}>
-            <li>
-              <a href="https://t.me/official_sqr400" target="_blank" rel="noreferrer">
-                <FaTelegramPlane />
-              </a>
-            </li>
+          <ul
+            className={`${styles["nav-links"]} ${
+              isOpen ? styles["show-menu"] : ""
+            }`}
+          >
             <li>
               <Link to="/blog">Blog</Link>
             </li>
             <li>
               <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <a
+                href="https://t.me/official_sqr400"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Community <FaTelegramPlane />
+              </a>
             </li>
           </ul>
         </div>

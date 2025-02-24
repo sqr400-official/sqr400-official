@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import styles from "./FeaturedProducts.module.css";
 const FeaturedProducts = ({ products }) => {
   const targetId = 1;
@@ -19,7 +20,11 @@ const FeaturedProducts = ({ products }) => {
           loading="lazy"
         />
         <div className={styles.productInfoDiv}>
-          <h2>{specificProduct.name}</h2>
+          <h2>
+            <Link to={`/product/${specificProduct.id}`}>
+              {specificProduct.name}
+            </Link>
+          </h2>
         </div>
       </div>
     </section>

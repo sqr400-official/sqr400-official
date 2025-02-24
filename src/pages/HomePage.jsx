@@ -20,8 +20,8 @@ const HomePage = () => {
         <FeaturedProducts products={products} />
         <Carousel />
         <Testimonials />
-        <MessageBox />
       </main>
+      <MessageBox />
       <StickyComponent />
       <Footer />
     </>

@@ -8,6 +8,7 @@ import Toast from "../components/Toast";
 import { useProductContext } from "../contexts/ProductContext";
 import StickyComponent from "../components/StickyComponent";
 import Footer from "../components/Footer";
+import MessageBox from "../components/MessageBox";
 
 const Checkout = () => {
   const { wallets, products } = useProductContext();
@@ -165,6 +166,7 @@ const Checkout = () => {
           />
         )}
       </main>
+      <MessageBox />
       <StickyComponent />
       <Footer />
     </>
