@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 const useFetchWithCoolDown = (
   fetchFunction,
   storageKey = "lastFetchTimestamp",
-  coolDown = 3_600_000 // 1 hour
+  coolDown = 10000 // 10 seconds
 ) => {
   const [isFetchingAllowed, setIsFetchingAllowed] = useState(false);
 

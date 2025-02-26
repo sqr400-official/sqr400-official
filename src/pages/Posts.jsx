@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 const Posts = () => {
   const { fetchPosts, posts, postsLoading, query } = usePosts();
-  const { isFetchingAllowed, fetchData } = useFetchWithCoolDown(fetchPosts);
+  const { fetchData } = useFetchWithCoolDown(fetchPosts);
 
   useEffect(() => {
     fetchData(); // Fetch data on mount if allowed
@@ -31,13 +31,6 @@ const Posts = () => {
         <div className={styles.allPostsHeader}>
           <h1>Posts</h1>
           <SearchBox />
-          <button
-            onClick={fetchData}
-            disabled={!isFetchingAllowed}
-            className={styles.refreshButton}
-          >
-            {isFetchingAllowed ? "Refresh Posts" : "Wait 1 Hour to Refresh"}
-          </button>
         </div>
 
         <div className={styles.postsContainerInner}>
