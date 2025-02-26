@@ -11,17 +11,19 @@ import { useEffect } from "react";
 import BlogSingle from "./pages/BlogSingle";
 import Posts from "./pages/Posts";
 import CreatePost from "./pages/CreatePost";
+import AdminPage from "./pages/AdminPage";
+import AllPosts from "./pages/AllPosts";
 
 const App = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-      // Check if redirected from 404.html
-      const params = new URLSearchParams(window.location.search);
-      const redirectPath = params.get("redirect");
-      if (redirectPath) {
-          navigate(redirectPath); // Navigate to the correct route
-      }
+    // Check if redirected from 404.html
+    const params = new URLSearchParams(window.location.search);
+    const redirectPath = params.get("redirect");
+    if (redirectPath) {
+      navigate(redirectPath); // Navigate to the correct route
+    }
   }, [navigate]);
 
   return (
@@ -40,7 +42,11 @@ const App = () => {
       <Route path="contact" element={<Contact />} />
       <Route path="blog" element={<Posts />} />
       <Route path="blog/:id" element={<BlogSingle />} />
-      <Route path="add-blog-post" element={<CreatePost />} />
+
+      <Route path="admin" element={<AdminPage />}>
+        <Route path="create-post" element={<CreatePost />} />
+        <Route path="all-posts" element={<AllPosts />} />
+      </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );

@@ -5,7 +5,6 @@
   background: white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  margin-top: 80px;
 }
 
 .createPostContainer h2 {
@@ -57,4 +56,11 @@
 
 .postSubmitBtn:hover {
   background: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+  .createPostContainer {
+    margin: 20px;
+  }
+  
 }

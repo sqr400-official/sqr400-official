@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 // JSONBin.io API Details (Replace these with your actual API key and bin ID)
@@ -26,34 +26,38 @@ export const PostProvider = ({ children }) => {
   const [newEntry, setNewEntry] = useState(initialPost);
   const [postsLoading, setPostsLoading] = useState(false);
 
-  // Fetch Posts from JSONBin.io on Load
-  const fetchPosts = async () => {
+  const [query, setQuery] = useState("");
+
+  const fetchPosts = useCallback(async () => {
     setPostsLoading(true);
     try {
-      const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
-        headers: { "X-Master-Key": API_KEY },
-      });
-  
+      const response = await fetch(
+        `https://api.jsonbin.io/v3/b/${BIN_ID}/latest`,
+        {
+          headers: { "X-Master-Key": API_KEY },
+        }
+      );
+
       if (!response.ok) throw new Error("Failed to fetch posts");
-  
+
       const data = await response.json();
-      const formattedPosts = data.record.posts.map(post => ({
+      const formattedPosts = data.record.posts.map((post) => ({
         ...post,
-        createdAt: new Date(post.createdAt) // Convert string to Date object
+        createdAt: new Date(post.createdAt), // Convert string to Date object
       }));
-  
+
       setPosts(formattedPosts);
     } catch (error) {
       console.error("Error fetching posts:", error);
     } finally {
       setPostsLoading(false);
     }
-  };
-  
+  }, []);
+
   // Add a New Post
   const handleAdd = async () => {
     try {
-      const updatedPosts = [...posts, newEntry];
+      const updatedPosts = [newEntry, ...posts];
 
       const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
         method: "PUT",
@@ -66,10 +70,36 @@ export const PostProvider = ({ children }) => {
 
       if (!response.ok) throw new Error("Failed to save post");
 
+      // Notify clients about the new post
+      localStorage.setItem("newPostAvailable", "true");
       setPosts(updatedPosts); // Update UI immediately
       setNewEntry(initialPost);
+      return true;
     } catch (error) {
       console.error("Error adding post:", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      // Filter out the post to be deleted
+      const updatedPosts = posts.filter((post) => post.id !== id);
+
+      // Update JSONBin with the modified posts list
+      const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": API_KEY,
+        },
+        body: JSON.stringify({ posts: updatedPosts }),
+      });
+
+      if (!response.ok) throw new Error("Failed to delete post");
+
+      setPosts(updatedPosts); // Update UI immediately
+    } catch (error) {
+      console.error("Error deleting post:", error);
     }
   };
 
@@ -84,14 +114,12 @@ export const PostProvider = ({ children }) => {
         initialPost,
         fetchPosts,
         postsLoading,
+        handleDelete,
+        query,
+        setQuery,
       }}
     >
       {children}
     </PostContext.Provider>
   );
-};
-
-// Custom Hook for Using Context
-export const usePostContext = () => {
-  return useContext(PostContext);
 };

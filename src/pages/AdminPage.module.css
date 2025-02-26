@@ -1,0 +1,109 @@
+.adminContainer {
+  display: flex;
+  height: 100vh;
+}
+
+
+.adminSideNav {
+  background: #1f2937;
+  color: white;
+  padding: 20px;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 60px;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+}
+
+.navItem {
+  margin-bottom: 10px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navIcon {
+  margin-right: 10px;
+  height: 30px;
+  width: 30px;
+}
+.navIcon span{
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.adminMain {
+  flex-grow: 1;
+  background-color: #f4f4f4;
+  margin-left: 250px;
+  overflow-y: auto;
+}
+
+.adminBottomNav {
+  display: none;
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .adminContainer {
+    flex-direction: column;
+  }
+
+  .adminSideNav {
+    display: none;
+  }
+
+  .adminMain {
+    margin-left: 0;
+  }
+
+  .adminBottomNav {
+    display: block;
+  }
+
+  .navList {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  .navItem {
+    flex-grow: 1;
+  }
+
+  .navLink {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .navIcon {
+    margin: 0;
+    height: 20px;
+    width: 20px;
+  }
+}

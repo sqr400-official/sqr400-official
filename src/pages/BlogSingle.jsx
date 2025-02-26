@@ -3,23 +3,21 @@ import Footer from "../components/Footer";
 import styles from "./BlogSingle.module.css";
 import { Link, useParams } from "react-router-dom";
 import MessageBox from "../components/MessageBox";
-import { usePostContext } from "../contexts/PostContext";
+import { usePosts } from "../hooks/usePosts";
 const BlogSingle = () => {
   const { id } = useParams();
-  const { posts } = usePostContext();
+  const { posts } = usePosts();
 
   const post = posts.find((p) => p.id === id);
-  if (!post) return <h2>Post not found!</h2>;
 
+  const getRandomPosts = (products, count = 3) => {
+    // Shuffle the products array using Fisher-Yates algorithm
+    const shuffled = [...products].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, count);
+  };
 
-    const getRandomPosts = (products, count = 3) => {
-      // Shuffle the products array using Fisher-Yates algorithm
-      const shuffled = [...products].sort(() => Math.random() - 0.5);
-      return shuffled.slice(0, count);
-    };
-  
-    const randomPosts = getRandomPosts(posts, 3);
-  
+  const randomPosts = getRandomPosts(posts, 3);
+
   return (
     <>
       <HeadNav />

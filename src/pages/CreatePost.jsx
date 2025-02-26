@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { usePostContext } from "../contexts/PostContext";
 import styles from "./CreatePost.module.css";
 import Toast from "../components/Toast";
-import HeadNav from "../components/HeadNav";
-import Footer from "../components/Footer";
 import SuccessModal from "../components/SuccessModal";
+import { useNavigate } from "react-router-dom";
+import { usePosts } from "../hooks/usePosts";
 
 const CreatePost = () => {
-  const { newEntry, setNewEntry, initialPost, handleAdd } = usePostContext();
+  const { newEntry, setNewEntry, initialPost, handleAdd } = usePosts();
   const [showToast, setShowToast] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   // Handle Input Change
   const handleChange = (e) => {
@@ -20,20 +20,29 @@ const CreatePost = () => {
   // Submit Form
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!newEntry.title.trim() || !newEntry.content.trim()) {
       setShowToast(true);
       setTimeout(() => setShowToast(false), 5000);
       return;
     }
-    await handleAdd();
-    setShowModal(true);
-    setTimeout(() => setShowModal(false), 5000);
-    setNewEntry(initialPost);
+
+    const success = await handleAdd(); // Wait for handleAdd to complete
+
+    if (success) {
+      setShowModal(true);
+      setTimeout(() => {
+        setShowModal(false);
+        navigate("/admin/all-posts"); // Navigate after modal disappears
+        window.location.reload(); // Refresh the page to see the new post
+      }, 2000); // Shorter delay for better UX
+
+      setNewEntry(initialPost);
+    }
   };
 
   return (
     <>
-      <HeadNav />
       <div className={styles.createPostContainer}>
         <h2>Create New Post</h2>
 
@@ -93,7 +102,6 @@ const CreatePost = () => {
           />
         )}
       </div>
-      <Footer />
     </>
   );
 };
