@@ -1,14 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { truncate } from "../utils/factions";
 import styles from "./AllPosts.module.css";
 import Loader from "../components/Loader";
 import SearchBox from "../components/SearchBox";
 import { usePosts } from "../hooks/usePosts";
 import useFetchWithCoolDown from "../hooks/useFetchWithCoolDown";
+import ConfirmationModal from "../components/ConfirmationModal";
+import { Link } from "react-router-dom";
 
 const AllPosts = () => {
   const { fetchPosts, posts, postsLoading, handleDelete, query } = usePosts();
   const { fetchData } = useFetchWithCoolDown(fetchPosts);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedPostId, setSelectedPostId] = useState(null); // ✅ Store post ID
 
   useEffect(() => {
     fetchData(); // Fetch data on mount if allowed
@@ -26,6 +30,17 @@ const AllPosts = () => {
 
   return (
     <>
+      {showModal && (
+        <ConfirmationModal
+          onConfirm={() => {
+            handleDeletePost(selectedPostId); // ✅ Now `post.id` is known
+            setShowModal(false);
+          }}
+          onCancel={() => setShowModal(false)}
+        >
+          Delete this post?
+        </ConfirmationModal>
+      )}
       <div className={styles.postsContainer}>
         <div className={styles.allPostsHeader}>
           <h1>Posts</h1>
@@ -60,10 +75,18 @@ const AllPosts = () => {
                   </time>
                 </p>
                 <div className={styles.adminAddPostButtons}>
-                  <button className={styles.editButton}>Edit</button>
+                  <Link
+                    to={`/admin/edit-post/${post.id}`}
+                    className={styles.editButton}
+                  >
+                    Edit
+                  </Link>
                   <button
                     className={styles.deleteButton}
-                    onClick={() => handleDeletePost(post.id)}
+                    onClick={() => {
+                      setSelectedPostId(post.id); // ✅ Store the clicked post's ID
+                      setShowModal(true);
+                    }}
                   >
                     Delete
                   </button>

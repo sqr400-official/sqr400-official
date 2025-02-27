@@ -103,6 +103,41 @@ export const PostProvider = ({ children }) => {
     }
   };
 
+  const handleEdit = async (id) => {
+    try {
+      // Ensure newEntry has valid values
+      if (!newEntry.title.trim() || !newEntry.content.trim()) {
+        console.error("Title and content cannot be empty.");
+        return false;
+      }
+  
+      // Find and update the existing post
+      const updatedPosts = posts.map((post) =>
+        post.id === id ? { ...post, ...newEntry } : post
+      );
+  
+      const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": API_KEY,
+        },
+        body: JSON.stringify({ posts: updatedPosts }),
+      });
+  
+      if (!response.ok) throw new Error("Failed to update post");
+  
+      // Notify clients about the update
+      localStorage.setItem("newPostAvailable", "true");
+      setPosts(updatedPosts); // Update UI immediately
+      setNewEntry(initialPost); // Reset form
+      return true;
+    } catch (error) {
+      console.error("Error editing post:", error);
+      return false;
+    }
+  };
+  
   return (
     <PostContext.Provider
       value={{
@@ -117,6 +152,7 @@ export const PostProvider = ({ children }) => {
         handleDelete,
         query,
         setQuery,
+        handleEdit,
       }}
     >
       {children}

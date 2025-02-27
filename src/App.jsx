@@ -13,6 +13,7 @@ import Posts from "./pages/Posts";
 import CreatePost from "./pages/CreatePost";
 import AdminPage from "./pages/AdminPage";
 import AllPosts from "./pages/AllPosts";
+import EditPost from "./pages/EditPost";
 
 const App = () => {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ const App = () => {
 
       <Route path="admin" element={<AdminPage />}>
         <Route path="create-post" element={<CreatePost />} />
+        <Route path="edit-post/:id" element={<EditPost />} />
         <Route path="all-posts" element={<AllPosts />} />
       </Route>
       <Route path="*" element={<ErrorPage />} />
