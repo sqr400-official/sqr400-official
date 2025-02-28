@@ -1,6 +1,17 @@
-import { FaPlusCircle, FaFileAlt, FaTachometerAlt, FaBoxOpen, FaCubes } from "react-icons/fa";
+import {
+  FaPlusCircle,
+  FaFileAlt,
+  FaTachometerAlt,
+  FaBoxOpen,
+  FaCubes,
+} from "react-icons/fa";
 
 export const adminNavigation = [
+  {
+    title: "Dashboard",
+    icon: FaTachometerAlt,
+    link: "#",
+  },
   {
     title: "Add Post",
     icon: FaPlusCircle, // No JSX here
@@ -10,11 +21,6 @@ export const adminNavigation = [
     title: "All Posts",
     icon: FaFileAlt,
     link: "/admin/all-posts",
-  },
-  {
-    title: "Dashboard",
-    icon: FaTachometerAlt,
-    link: "#",
   },
   {
     title: "Add Product",

@@ -47,6 +47,7 @@ export const PostProvider = ({ children }) => {
       }));
 
       setPosts(formattedPosts);
+      console.log("request meade")
     } catch (error) {
       console.error("Error fetching posts:", error);
     } finally {
@@ -103,19 +104,18 @@ export const PostProvider = ({ children }) => {
     }
   };
 
-  const handleEdit = async (id) => {
+  const handleEdit = async (id, updatedPost) => {
     try {
-      // Ensure newEntry has valid values
-      if (!newEntry.title.trim() || !newEntry.content.trim()) {
+      if (!updatedPost.title.trim() || !updatedPost.content.trim()) {
         console.error("Title and content cannot be empty.");
         return false;
       }
-  
-      // Find and update the existing post
+
+      // Find and update the post
       const updatedPosts = posts.map((post) =>
-        post.id === id ? { ...post, ...newEntry } : post
+        post.id === id ? { ...post, ...updatedPost } : post
       );
-  
+
       const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
         method: "PUT",
         headers: {
@@ -124,20 +124,19 @@ export const PostProvider = ({ children }) => {
         },
         body: JSON.stringify({ posts: updatedPosts }),
       });
-  
+
       if (!response.ok) throw new Error("Failed to update post");
-  
+
       // Notify clients about the update
       localStorage.setItem("newPostAvailable", "true");
       setPosts(updatedPosts); // Update UI immediately
-      setNewEntry(initialPost); // Reset form
       return true;
     } catch (error) {
       console.error("Error editing post:", error);
       return false;
     }
   };
-  
+
   return (
     <PostContext.Provider
       value={{

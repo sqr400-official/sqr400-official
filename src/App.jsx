@@ -14,6 +14,8 @@ import CreatePost from "./pages/CreatePost";
 import AdminPage from "./pages/AdminPage";
 import AllPosts from "./pages/AllPosts";
 import EditPost from "./pages/EditPost";
+import SignIn from "./pages/SignIn";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 const App = () => {
   const navigate = useNavigate();
@@ -44,11 +46,15 @@ const App = () => {
       <Route path="blog" element={<Posts />} />
       <Route path="blog/:id" element={<BlogSingle />} />
 
-      <Route path="admin" element={<AdminPage />}>
-        <Route path="create-post" element={<CreatePost />} />
-        <Route path="edit-post/:id" element={<EditPost />} />
-        <Route path="all-posts" element={<AllPosts />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="admin" element={<AdminPage />}>
+          <Route path="create-post" element={<CreatePost />} />
+          <Route path="edit-post/:id" element={<EditPost />} />
+          <Route path="all-posts" element={<AllPosts />} />
+        </Route>
       </Route>
+
+      <Route path="sign-in" element={<SignIn />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );

@@ -10,7 +10,9 @@ const EditPost = () => {
   const { id } = useParams(); // Get post ID from URL
   const navigate = useNavigate();
 
+  // Find the post to edit
   const postToEdit = posts.find((post) => post.id === id);
+
   const [postData, setPostData] = useState(
     postToEdit || {
       title: "",
@@ -23,11 +25,15 @@ const EditPost = () => {
   const [showToast, setShowToast] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
+  // Redirect if the post is not found
   useEffect(() => {
-    if (postToEdit) {
+    if (!postToEdit) {
+      console.error("Post not found!");
+      navigate("/admin/all-posts");
+    } else {
       setPostData(postToEdit);
     }
-  }, [postToEdit]);
+  }, [postToEdit, navigate]);
 
   // Handle Input Change
   const handleChange = (e) => {
@@ -51,8 +57,7 @@ const EditPost = () => {
       setShowModal(true);
       setTimeout(() => {
         setShowModal(false);
-        navigate("/admin/all-posts");
-        window.location.reload();
+        navigate("/admin/all-posts"); // No more page reload
       }, 2000);
     }
   };
