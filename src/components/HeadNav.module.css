@@ -60,6 +60,10 @@
   cursor: pointer;
 }
 
+.mobileLogout {
+  display: none;
+}
+
 /* Desktop View */
 @media (min-width: 768px) {
   .nav-links {
@@ -73,5 +77,19 @@
 
   .nav-toggle {
     display: none;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .mobileLogout {
+    all: unset;
+    display: flex;
+    color: #4b5563;
+    font-weight: 500;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    cursor: pointer;
   }
 }

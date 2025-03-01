@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./HeadNav.module.css";
 import Logo from "./Logo";
-import { FaTelegramPlane } from "react-icons/fa";
+import { FaTelegramPlane, FaSignOutAlt } from "react-icons/fa";
+import { useAuth } from "../hooks/useAuth";
 
 const HeadNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated, logout } = useAuth();
 
   return (
     <header className={styles.headNav}>
@@ -41,6 +43,19 @@ const HeadNav = () => {
                 Community <FaTelegramPlane />
               </a>
             </li>
+            {isAuthenticated && (
+              <>
+                <li>
+                  <Link to="/admin">Admin</Link>
+                </li>
+                <li>
+                  <button className={styles.mobileLogout} onClick={logout}>
+                    Logout
+                    <FaSignOutAlt  />
+                  </button>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </nav>

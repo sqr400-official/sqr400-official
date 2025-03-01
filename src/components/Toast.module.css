@@ -12,6 +12,10 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+.toast.error {
+  background-color: #f44336;
+}
+
 .toast.warning {
   background-color: #ff9800;
 }

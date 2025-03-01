@@ -43,7 +43,8 @@
   height: 30px;
   width: 30px;
 }
-.navIcon span{
+
+.navIcon span {
   font-size: 20px;
   margin-left: 5px;
 }
@@ -53,6 +54,7 @@
   background-color: #f4f4f4;
   margin-left: 250px;
   overflow-y: auto;
+  position: relative;
 }
 
 .adminBottomNav {
@@ -64,6 +66,26 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.logout {
+  all: unset;
+  position: absolute;
+  left: 30px;
+  bottom: 80px;
+  border: 2px solid #f4f4f4;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.3s;
+}
+
+.logout:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+
 }
 
 @media (max-width: 768px) {

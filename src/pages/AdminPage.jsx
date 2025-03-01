@@ -1,10 +1,14 @@
+import { FaSignOutAlt } from "react-icons/fa";
+import { Link, Outlet } from "react-router-dom"; // Assuming you're using React Router
 import { adminNavigation } from "../../data/navigation";
 import Footer from "../components/Footer";
 import HeadNav from "../components/HeadNav";
+import { useAuth } from "../hooks/useAuth";
 import styles from "./AdminPage.module.css";
-import { Link, Outlet } from "react-router-dom"; // Assuming you're using React Router
 
 const AdminPage = () => {
+  const { logout } = useAuth();
+
   return (
     <>
       <HeadNav />
@@ -16,12 +20,17 @@ const AdminPage = () => {
               {adminNavigation.map((item, index) => (
                 <li key={index} className={styles.navItem}>
                   <Link to={item.link} className={styles.navLink}>
-                    <item.icon size={20} className={styles.navIcon} /> <span>{item.title}</span>
+                    <item.icon size={20} className={styles.navIcon} />{" "}
+                    <span>{item.title}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
+          <button className={styles.logout} onClick={logout}>
+            <FaSignOutAlt size={20} />
+            Logout
+          </button>
         </aside>
 
         {/* Main Content Area */}

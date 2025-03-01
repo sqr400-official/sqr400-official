@@ -10,7 +10,7 @@ export const adminNavigation = [
   {
     title: "Dashboard",
     icon: FaTachometerAlt,
-    link: "#",
+    link: "/admin/dashboard",
   },
   {
     title: "Add Post",

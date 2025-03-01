@@ -47,7 +47,6 @@ export const PostProvider = ({ children }) => {
       }));
 
       setPosts(formattedPosts);
-      console.log("request meade")
     } catch (error) {
       console.error("Error fetching posts:", error);
     } finally {

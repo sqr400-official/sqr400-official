@@ -16,6 +16,7 @@ import AllPosts from "./pages/AllPosts";
 import EditPost from "./pages/EditPost";
 import SignIn from "./pages/SignIn";
 import ProtectedRoute from "./pages/ProtectedRoute";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   const navigate = useNavigate();
@@ -48,13 +49,15 @@ const App = () => {
 
       <Route element={<ProtectedRoute />}>
         <Route path="admin" element={<AdminPage />}>
+        <Route index element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="create-post" element={<CreatePost />} />
           <Route path="edit-post/:id" element={<EditPost />} />
           <Route path="all-posts" element={<AllPosts />} />
         </Route>
       </Route>
 
-      <Route path="sign-in" element={<SignIn />} />
+      <Route path="login" element={<SignIn />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
