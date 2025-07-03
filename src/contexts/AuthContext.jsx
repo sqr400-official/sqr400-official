@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { createContext, useReducer, useEffect } from "react";
 
 export const AuthContext = createContext();
@@ -16,11 +18,12 @@ const initialState = {
 
 const authReducer = (state, action) => {
   switch (action.type) {
-    case "login":
+    case "login": {
       const expiresAt = Date.now() + SESSION_DURATION;
       localStorage.setItem("user", JSON.stringify(action.payload));
       localStorage.setItem("expiresAt", expiresAt);
       return { ...state, user: action.payload, isAuthenticated: true };
+    }
 
     case "logout":
       localStorage.removeItem("user");
