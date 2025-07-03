@@ -1,0 +1,2 @@
+import{a as o,b as d,j as s}from"./index-BpsviVg6.js";const p="_description_1cbep_1",r={description:p},u=()=>{const{products:n}=o(),{id:c}=d(),i=n.find(t=>t.id===Number(c));return i?s.jsxs("div",{className:r.description,children:[s.jsx("h2",{children:"Description"}),s.jsx("p",{className:r.productDescription,children:i.description.split(`
+`).map((t,e)=>s.jsxs("span",{children:[t,s.jsx("br",{})]},e))})]}):s.jsx("p",{children:"Product not found."})};export{u as default};

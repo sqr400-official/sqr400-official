@@ -1,0 +1,1 @@
+import{j as e,H as a,E as n}from"./index-BpsviVg6.js";const t=()=>{const r=()=>{window.open("https://wa.me/+13134875056","_blank")};return e.jsxs(e.Fragment,{children:[e.jsx(a,{}),e.jsx(n,{onClick:r,error:"Verification Failed",message:"Sorry we are unable to verify your payment",icon:"cancel.svg",btnMsg:"Contact Support"})]})};export{t as default};
