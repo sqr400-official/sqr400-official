@@ -1,8 +1,7 @@
-import { usePosts } from "../hooks/usePosts";
+import PropTypes from "prop-types";
 import styles from "./SearchBox.module.css";
 
-const SearchBox = () => {
-  const { query, setQuery } = usePosts();
+const SearchBox = ({query, setQuery}) => {
 
   return (
     <form className={styles.searchBox}>
@@ -16,6 +15,11 @@ const SearchBox = () => {
       />
     </form>
   );
+};
+
+SearchBox.propTypes = {
+  query: PropTypes.string.isRequired,
+  setQuery: PropTypes.func.isRequired
 };
 
 export default SearchBox;

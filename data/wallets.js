@@ -1,23 +1,23 @@
 const walletsData = [
   {
     chain: "BTC - Bitcoin",
-    address: "bc1qwf75azsc6r2mce8k3u85asld8a2drtsuz0qxpc",
+    address: "bc1qylxz5hdfqp4dmpp5gczc58s9jvtn550p5gk4sq",
   },
   {
     chain: "USDT - Tron/TRC20",
-    address: "TKLd3u9XQ5g9UoYuzpqn6gLxuTGPwG1w9d",
+    address: "TCZoFuR7aFpKoNFZsh8Gh5C6c7bEMJp9ed",
   },
   {
     chain: "Sol - Solana",
-    address: "CCGfQDjG7GZ3QvYrW2fjxDtTn2nBe28q8WWYanJ5oL9w",
+    address: "8EvVPs2tSLBu6dXjX9H1cpJoRaK5j1LWbCeekEvW6A81",
   },
   {
     chain: "BNB - BSC",
-    address: "0x88d0963F8E3b1482a714445C75c3cCe3e435A9eD",
+    address: "0x08DeA4A07916728e1A9cFACcD7Cee66336840B48",
   },
   {
     chain: "ETH - Ethereum",
-    address: "0x88d0963F8E3b1482a714445C75c3cCe3e435A9eD",
+    address: "0x08DeA4A07916728e1A9cFACcD7Cee66336840B48",
   },
 ];
 

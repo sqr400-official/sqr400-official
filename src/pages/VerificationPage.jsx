@@ -4,7 +4,7 @@ import ErrorComponent from "../components/ErrorComponent";
 const VerificationPage = () => {
   const handleTryAgain = () => {
     // Redirect to the payment page
-    window.open("https://t.me/sqr400_official", "_blank");
+    window.open("https://wa.me/+13134875056", "_blank");
   };
 
   return (

@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./HeadNav.module.css";
 import Logo from "./Logo";
-import { FaTelegramPlane, FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from "../hooks/useAuth";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 const HeadNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,11 +37,11 @@ const HeadNav = () => {
             </li>
             <li>
               <a
-                href="https://t.me/official_sqr400"
+                href="https://whatsapp.com/channel/0029Vb5f2o411ulOL0TbKW26"
                 target="_blank"
                 rel="noreferrer"
               >
-                Community <FaTelegramPlane />
+                Community <IoLogoWhatsapp />
               </a>
             </li>
             {isAuthenticated && (

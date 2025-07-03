@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        // Redirect to the correct route so React can handle it
-        var path = window.location.pathname.replace('/sqr400-official', ''); 
-        var newUrl = "/sqr400-official/index.html?redirect=" + path + window.location.search + window.location.hash;
-        window.location.replace(newUrl);
+        (function () {
+            // Get the current path (excluding the repo name)
+            const repo = "/sqr400-official";
+            const path = window.location.pathname.startsWith(repo)
+                ? window.location.pathname.slice(repo.length)
+                : window.location.pathname;
+
+            // Preserve query parameters and hash
+            const newUrl = repo + "/index.html?redirect=" + encodeURIComponent(path + window.location.search + window.location.hash);
+
+            // Perform instant redirect
+            window.location.replace(newUrl);
+        })();
     </script>
 </head>
+
 <body>
     <h1>Redirecting...</h1>
     <p>If you are not redirected, <a id="redirect-link" href="/">click here</a>.</p>
-    <script>document.getElementById("redirect-link").href = newUrl;</script>
+    <script>
+        document.getElementById("redirect-link").href = newUrl;
+    </script>
 </body>
+
 </html>
