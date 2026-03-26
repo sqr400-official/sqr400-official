@@ -12,7 +12,7 @@ const walletsData = [
     address: "8EvVPs2tSLBu6dXjX9H1cpJoRaK5j1LWbCeekEvW6A81",
   },
   {
-    chain: "BNB - BSC",
+    chain: "BNB - Smart Chain",
     address: "0x08DeA4A07916728e1A9cFACcD7Cee66336840B48",
   },
   {
